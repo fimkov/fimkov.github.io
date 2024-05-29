@@ -124,7 +124,7 @@ require("botApiLua")
 bot = Bot.create("[TOKEN OF U BOT]")
 
 function test(message)
-    gg.alert(bot.get_me())
+    gg.alert(tostring(bot.get_me()))
 end
 
 bot.handlers.register_handler({
@@ -179,7 +179,7 @@ end
             </ul>
             <p>Example:</p>
             <pre><code class="lua">
-print(bot.get_me())
+print(tostring(bot.get_me()))
             </code></pre>
         </div>
     </section>
