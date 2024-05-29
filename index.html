@@ -102,6 +102,7 @@
         <li><a href="#section2">Send Message</a></li>
         <li><a href="#section3">Get Me</a></li>
         <li><a href="#section4">Forward Message</a></li>
+        <li><a href="#section5">get chat member</a></li>
     </ul>
 </nav>
 <main>
@@ -202,6 +203,22 @@ function test(message)
     bot.forward_message(chat_id=message.from.id, from_chat_id=message.from.id, message_id=message.message_id)
 end
             </code></pre>
+        </div>
+    </section>
+    <section id="section5">
+        <div class="section">
+            <h2 class="section-title">get chat member</h2>
+            <p>In this section, I will introduce you to the get_chat_member method.</p>
+            <p>Arguments:</p>
+            <ul>
+                <li>chat_id (number) - Unique identifier for the target chat or username of the target channel (in the format @channelusername)</li>
+                <li>user_id (number) - Unique identifier for the target chat or username of the target channel (in the format @channelusername)</li>
+            </ul>
+            <p>Return:</p>
+            <ul>
+                <li>User objects</li>
+            </ul>
+            <p>Example: <a href="https://github.com/fimkov/BotApiLuaGG/blob/main/examples/check_sub.lua">on git</a></p>
         </div>
     </section>
 </main>
