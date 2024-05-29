@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation: Lua Bot API (gg)</title>
+    <!-- Подключаем Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,8 +16,9 @@
             scroll-behavior: smooth;
         }
 
+        /* Удаляем пользовательские стили, которые перекрывают Bootstrap */
         a {
-            color: #ff9900;
+            color: inherit;
             text-decoration: none;
         }
 
@@ -37,13 +40,6 @@
         nav {
             background-color: #333333;
             padding: 10px;
-            width: 10%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            overflow-y: scroll;
-            scrollbar-width: thin;
         }
 
         .navigation {
@@ -56,7 +52,6 @@
         }
 
         main {
-            margin-left: 220px;
             padding: 20px;
         }
 
@@ -94,7 +89,7 @@
     <header>
         <h1 class="title">Lua Bot API (gg) Documentation</h1>
     </header>
-    <nav>
+    <nav class="col-md-2">
         <ul class="navigation">
             <li><a href="#introduction">Introduction</a></li>
             <li><a href="#section1">Connecting Bot</a></li>
@@ -103,7 +98,7 @@
             <li><a href="#section4">Forward Message</a></li>
         </ul>
     </nav>
-    <main>
+    <main class="col-md-10">
         <section id="introduction">
             <div class="section">
                 <h2 class="section-title">Introduction</h2>
@@ -134,77 +129,75 @@ bot.handlers.register_handler({
 bot.mainloop(1)
                 </code></pre>
                 <p>Replace [TOKEN OF U BOT] with your token and run this.</p>
-                <p>Perfectly! Now your bot will display a pop-up window with information about itself after any
-                    <p>command you send!</p>
-                    <p>Further on, the documentation will simply contain methods and their descriptions. Goodbye.</p>
-                </div>
-            </section>
-            <section id="section2">
-                <div class="section">
-                    <h2 class="section-title">Send Message</h2>
-                    <p>It's time to get acquainted with our first method! It is a send_message. You can use it to send messages!</p>
-                    <p>Arguments:</p>
-                    <ul>
-                        <li>chat_id (number) - Unique identifier for the target chat or username of the target channel (in the format @channelusername)</li>
-                        <li>text (string) - Text of the message to be sent, 1-4096 characters after entities parsing</li>
-                        <li>message_thread_id (number) - Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</li>
-                        <li>protect_content (boolean) - Protects the contents of the sent message from forwarding and saving</li>
-                        <li>disable_notification (boolean) - Sends the message silently. Users will receive a notification with no sound.</li>
-                        <li>message_effect_id (string) - Unique identifier of the message effect to be added to the message; for private chats only</li>
-                    </ul>
-                    <p>Return:</p>
-                    <ul>
-                        <li>Message object</li>
-                    </ul>
-                    <p>Example:</p>
-                    <pre><code class="lua">
-    function test(message)
-        bot.send_message(chat_id=message.from.id, text="Hello!")
-    end
-                    </code></pre>
-                    <p>FAQ:</p>
-                    <ul>
-                        <li>How do I add a keyboard?<br>It's not possible right now. Soon.</li>
-                    </ul>
-                </div>
-            </section>
-            <section id="section3">
-                <div class="section">
-                    <h2 class="section-title">Get Me</h2>
-                    <p>In this section, I will introduce you to the get_me method.</p>
-                    <p>Return:</p>
-                    <ul>
-                        <li>User object of bot</li>
-                    </ul>
-                    <p>Example:</p>
-                    <pre><code class="lua">
-    print(bot.get_me())
-                    </code></pre>
-                </div>
-            </section>
-            <section id="section4">
-                <div class="section">
-                    <h2 class="section-title">Forward Message</h2>
-                    <p>In this section, I will introduce you to the forward_message method.</p>
-                    <p>Arguments:</p>
-                    <ul>
-                        <li>chat_id (number) - Unique identifier for the target chat or username of the target channel (in the format @channelusername)</li>
-                        <li>from_chat_id (number) - Unique identifier for the chat where the original message was sent (or channel username in the format @channelusername)</li>
-                        <li>message_id (number) - Message identifier in the chat specified in from_chat_id</li>
-                    </ul>
-                    <p>Return:</p>
-                    <ul>
-                        <li>Message objects</li>
-                    </ul>
-                    <p>Example:</p>
-                    <pre><code class="lua">
+                <p>Perfectly! Now your bot will display a pop-up window with information about itself after any command you send!</p>
+                <p>Further on, the documentation will simply contain methods and their descriptions. Goodbye.</p>
+            </div>
+        </section>
+        <section id="section2">
+            <div class="section">
+                <h2 class="section-title">Send Message</h2>
+                <p>It's time to get acquainted with our first method! It is a send_message. You can use it to send messages!</p>
+                <p>Arguments:</p>
+                <ul>
+                    <li>chat_id (number) - Unique identifier for the target chat or username of the target channel (in the format @channelusername)</li>
+                    <li>text (string) - Text of the message to be sent, 1-4096 characters after entities parsing</li>
+                    <li>message_thread_id (number) - Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</li>
+                    <li>protect_content (boolean) - Protects the contents of the sent message from forwarding and saving</li>
+                    <li>disable_notification (boolean) - Sends the message silently. Users will receive a notification with no sound.</li>
+                    <li>message_effect_id (string) - Unique identifier of the message effect to be added to the message; for private chats only</li>
+                </ul>
+                <p>Return:</p>
+                <ul>
+                    <li>Message object</li>
+                </ul>
+                <p>Example:</p>
+                <pre><code class="lua">
+function test(message)
+    bot.send_message(chat_id=message.from.id, text="Hello!")
+end
+                </code></pre>
+                <p>FAQ:</p>
+                <ul>
+                    <li>How do I add a keyboard?<br>It's not possible right now. Soon.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="section3">
+            <div class="section">
+                <h2 class="section-title">Get Me</h2>
+                <p>In this section, I will introduce you to the get_me method.</p>
+                <p>Return:</p>
+                <ul>
+                    <li>User object of bot</li>
+                </ul>
+                <p>Example:</p>
+                <pre><code class="lua">
+print(bot.get_me())
+                </code></pre>
+            </div>
+        </section>
+        <section id="section4">
+            <div class="section">
+                <h2 class="section-title">Forward Message</h2>
+                <p>In this section, I will introduceизя вас к методу forward_message.
+                <p>Arguments:</p>
+                <ul>
+                    <li>chat_id (number) - Unique identifier for the target chat or username of the target channel (in the format @channelusername)</li>
+                    <li>from_chat_id (number) - Unique identifier for the chat where the original message was sent (or channel username in the format @channelusername)</li>
+                    <li>message_id (number) - Message identifier in the chat specified in from_chat_id</li>
+                </ul>
+                <p>Return:</p>
+                <ul>
+                    <li>Message objects</li>
+                </ul>
+                <p>Example:</p>
+                <pre><code class="lua">
     function test(message)
         bot.forward_message(chat_id=message.from.id, from_chat_id=message.from.id, message_id=message.message_id)
     end
-                    </code></pre>
-                </div>
-            </section>
-        </main>
-    </body>
+                </code></pre>
+            </div>
+        </section>
+    </main>       
+</body>
 </html>
-    
